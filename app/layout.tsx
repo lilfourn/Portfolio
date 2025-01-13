@@ -13,6 +13,11 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: "Luke Fournier",
   description: "Luke Fournier - Fullstack Developer",
+  icons: {
+    icon: [
+      { url: "/images/luke.jpg", type: "image/jpeg" }
+    ]
+  }
 };
 
 export default function RootLayout({
