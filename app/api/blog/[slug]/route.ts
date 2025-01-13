@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
@@ -8,7 +8,7 @@ type RouteContext = {
   };
 };
 
-export async function GET(_request: NextRequest, context: RouteContext) {
+export async function GET(request: Request, context: RouteContext) {
   try {
     const filePath = path.join(process.cwd(), 'content/blog', `${context.params.slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, 'utf8');
