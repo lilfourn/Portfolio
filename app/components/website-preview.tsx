@@ -1,14 +1,12 @@
 "use client";
 
 import React from 'react';
-import { CircleDot } from 'lucide-react';
 
 interface WebsitePreviewProps {
-  imageUrl?: string;
   websiteUrl?: string;
 }
 
-const WebsitePreview = ({ imageUrl, websiteUrl = 'metric.ai' }: WebsitePreviewProps) => {
+const WebsitePreview = ({ websiteUrl = 'metric.ai' }: WebsitePreviewProps) => {
   const features = [
     {
       icon: '📈',

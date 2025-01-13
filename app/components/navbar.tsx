@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Linkedin, Github, Mail, Menu, X, Home } from 'lucide-react';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,21 +45,20 @@ const Navbar = () => {
             <div className="hidden md:flex items-center space-x-6">
               
               {navigationItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="hover:text-white text-sm font-medium transition-colors duration-200"
                 >
                   {item.label}
-                </a>
-                
+                </Link>
               ))}
-              <a
+              <Link
                 href="/"
                 className="hover:text-white text-sm font-medium transition-colors duration-200"
               >
                 <Home className="w-5 h-5" />
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -83,22 +83,22 @@ const Navbar = () => {
           >
             <div className="py-4 border-t border-gray-700">
               <div className="flex flex-col space-y-4">
-                <a
+                <Link
                   href="/"
                   className="hover:text-white text-sm font-medium transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <Home className="w-5 h-5" />
-                </a>
+                </Link>
                 {navigationItems.map((item) => (
-                  <a
+                  <Link
                     key={item.label}
                     href={item.href}
                     className="hover:text-white text-sm font-medium transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

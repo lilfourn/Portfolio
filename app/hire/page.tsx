@@ -2,7 +2,6 @@
 
 // app/hire/page.tsx
 import ContactForm from '@/app/components/ContactForm';
-import DailyCrossword from '../components/daily-crossword';
 
 export default function HirePage() {
   return (

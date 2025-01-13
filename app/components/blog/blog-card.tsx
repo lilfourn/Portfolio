@@ -4,7 +4,7 @@ import { BlogPost } from "@/app/types/blog-types";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, Clock, Tag } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 interface BlogCardProps {

@@ -1,13 +1,11 @@
 "use client";
 
 import WebsitePreview from "@/app/components/website-preview";
-import MockWebsite from "@/public/mock-website";
 import GlowingText from "@/app/components/glowing-text";
 import PulsingLight from "@/app/components/pulsinglight";
 import AboutMe from "@/app/components/about-me";
 import Image from "next/image";
 import { Code2, Briefcase, GraduationCap, GitBranch } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const Page = () => {
   const techStack = [
@@ -68,7 +66,7 @@ const Page = () => {
             {/* Introduction Text */}
             <div className="space-y-2">
               <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white tracking-tight leading-none">
-                Hey, I'm{' '}
+                Hey, I&apos;m{' '}
                 <span className="relative inline-block">
                   <span className="relative z-10">Luke</span>
                   <div 

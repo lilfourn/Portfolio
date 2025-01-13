@@ -28,6 +28,7 @@ export default function RootLayout({
           {children}
         </GridBackground>
         <script
+          async
           type="module"
           src="https://unpkg.com/@splinetool/viewer@1.9.58/build/spline-viewer.js"
         />

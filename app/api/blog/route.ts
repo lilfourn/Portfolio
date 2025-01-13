@@ -7,7 +7,7 @@ export async function GET() {
     const blogDir = path.join(process.cwd(), 'content/blog');
     const files = fs.readdirSync(blogDir);
     return NextResponse.json(files);
-  } catch (error) {
+  } catch {
     return new NextResponse('Error listing blog posts', { status: 500 });
   }
 }

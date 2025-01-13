@@ -1,4 +1,4 @@
-import { Code2, Globe } from "lucide-react"
+import { Globe } from "lucide-react"
 
 export interface Project {
   title: string

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Heart, Globe, Lightbulb, Coffee, Code2, Dog, Mountain, Rocket, ArrowRight } from 'lucide-react';
+import { Coffee, Code2, Dog, Mountain, Rocket, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import GlowingText from './glowing-text';
 import Link from 'next/link';

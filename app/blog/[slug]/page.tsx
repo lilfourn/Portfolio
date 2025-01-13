@@ -12,31 +12,38 @@ import { Suspense } from "react";
 import { BlogPost } from "@/types/blog-types";
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
+interface MDXComponentProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
 interface MDXComponents {
-  [key: string]: React.ComponentType<any>;
+  [key: string]: React.ComponentType<MDXComponentProps>;
 }
 
 const components: MDXComponents = {
-  h1: (props: any) => (
-    <h1 className="text-3xl font-bold text-white mt-8 mb-4" {...props} />
+  h1: ({ children, ...props }: MDXComponentProps) => (
+    <h1 className="text-3xl font-bold text-white mt-8 mb-4" {...props}>{children}</h1>
   ),
-  h2: (props: any) => (
-    <h2 className="text-2xl font-bold text-white mt-8 mb-4" {...props} />
+  h2: ({ children, ...props }: MDXComponentProps) => (
+    <h2 className="text-2xl font-bold text-white mt-8 mb-4" {...props}>{children}</h2>
   ),
-  h3: (props: any) => (
-    <h3 className="text-xl font-bold text-white mt-6 mb-3" {...props} />
+  h3: ({ children, ...props }: MDXComponentProps) => (
+    <h3 className="text-xl font-bold text-white mt-6 mb-3" {...props}>{children}</h3>
   ),
-  p: (props: any) => (
-    <p className="text-zinc-300 leading-relaxed mb-4" {...props} />
+  p: ({ children, ...props }: MDXComponentProps) => (
+    <p className="text-zinc-300 leading-relaxed mb-4" {...props}>{children}</p>
   ),
-  ul: (props: any) => (
-    <ul className="list-disc list-inside space-y-2 mb-4 text-zinc-300" {...props} />
+  ul: ({ children, ...props }: MDXComponentProps) => (
+    <ul className="list-disc list-inside space-y-2 mb-4 text-zinc-300" {...props}>{children}</ul>
   ),
-  ol: (props: any) => (
-    <ol className="list-decimal list-inside space-y-2 mb-4 text-zinc-300" {...props} />
+  ol: ({ children, ...props }: MDXComponentProps) => (
+    <ol className="list-decimal list-inside space-y-2 mb-4 text-zinc-300" {...props}>{children}</ol>
   ),
-  li: (props: any) => <li className="text-zinc-300" {...props} />,
-  code: ({ children, className, ...props }: any) => {
+  li: ({ children, ...props }: MDXComponentProps) => (
+    <li className="text-zinc-300" {...props}>{children}</li>
+  ),
+  code: ({ children, className, ...props }: MDXComponentProps) => {
     const isInline = !className;
     return isInline ? (
       <code className="bg-zinc-800 text-zinc-200 px-1.5 py-0.5 rounded text-sm" {...props}>
@@ -48,17 +55,17 @@ const components: MDXComponents = {
       </code>
     );
   },
-  pre: (props: any) => (
-    <pre className="bg-zinc-900 rounded-lg p-4 overflow-x-auto mb-6" {...props} />
+  pre: ({ children, ...props }: MDXComponentProps) => (
+    <pre className="bg-zinc-800 p-4 rounded-lg mb-4 overflow-x-auto" {...props}>{children}</pre>
   ),
-  strong: (props: any) => (
-    <strong className="font-semibold text-white" {...props} />
+  strong: ({ children, ...props }: MDXComponentProps) => (
+    <strong className="font-bold text-white" {...props}>{children}</strong>
   ),
-  blockquote: (props: any) => (
-    <blockquote className="border-l-4 border-blue-500 pl-4 italic text-zinc-400 my-4" {...props} />
+  blockquote: ({ children, ...props }: MDXComponentProps) => (
+    <blockquote className="border-l-4 border-zinc-700 pl-4 my-4 text-zinc-400" {...props}>{children}</blockquote>
   ),
-  a: (props: any) => (
-    <a className="text-blue-400 hover:text-blue-300 underline" {...props} />
+  a: ({ children, ...props }: MDXComponentProps & { href?: string }) => (
+    <a className="text-blue-400 hover:text-blue-300 transition-colors" {...props}>{children}</a>
   ),
 };
 
@@ -123,7 +130,7 @@ export default function BlogPostPage() {
               {error}
             </h1>
             <p className="text-zinc-400">
-              The blog post you're looking for couldn't be found.
+              The blog post you&apos;re looking for couldn&apos;t be found.
             </p>
           </div>
         </div>

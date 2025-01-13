@@ -4,7 +4,6 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Project } from "./projects-data"
 import ProjectDialog from "./project-dialog"
-import { ExternalLink, Github } from "lucide-react"
 
 interface ProjectCardProps extends Project {
   index: number

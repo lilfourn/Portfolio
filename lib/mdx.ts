@@ -1,8 +1,7 @@
-import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { cache } from 'react';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import type { BlogPost, BlogFrontMatter } from '@/types/blog-types';
+import type { BlogPost } from '@/types/blog-types';
 
 const BLOG_POSTS: Record<string, BlogPost> = {
   'building-modern-portfolio': {

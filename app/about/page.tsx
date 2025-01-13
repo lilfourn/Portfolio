@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Code2, Brain, Lightbulb, Coffee, Camera, Rocket, Heart, Sparkles, Users, GraduationCap, Mountain, Dog } from 'lucide-react';
+import { Code2, Brain, Lightbulb, Coffee, Heart, Users, Mountain, Dog } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import GlowingText from "@/app/components/glowing-text";
@@ -241,10 +241,10 @@ export default function AboutPage() {
               </Avatar>
             </div>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-4">Let's Create Something Amazing</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Let&apos;s Create Something Amazing</h2>
           <p className="text-xl text-zinc-300 max-w-2xl mx-auto">
-            I'm always excited to take on new challenges and collaborate on innovative projects. 
-            Whether you have a specific project in mind or just want to connect, I'd love to hear from you.
+            I&apos;m always excited to take on new challenges and collaborate on innovative projects. 
+            Whether you have a specific project in mind or just want to connect, I&apos;d love to hear from you.
           </p>
 
           <div className="mt-8 flex justify-center">
@@ -254,7 +254,7 @@ export default function AboutPage() {
             >
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
               <Coffee className="w-5 h-5" />
-              <span className="relative">Let's Grab Coffee</span>
+              <span className="relative">Let&apos;s Grab Coffee</span>
             </Link>
           </div>
         </motion.div>
