@@ -2,16 +2,9 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-interface RouteParams {
-  params: {
-    slug: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
-}
-
 export async function GET(
   request: Request,
-  { params }: RouteParams
+  { params }: { params: { slug: string } }
 ) {
   try {
     const filePath = path.join(process.cwd(), 'content/blog', `${params.slug}.mdx`);
