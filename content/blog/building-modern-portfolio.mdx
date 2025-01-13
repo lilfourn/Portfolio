@@ -1,0 +1,142 @@
+---
+title: "Building a Modern Web Portfolio with Next.js"
+description: "A comprehensive guide to creating a modern, performant portfolio website using Next.js, React, and TypeScript"
+date: "2025-01-11"
+author:
+  name: "Luke Fournier"
+  image: "/images/luke.jpg"
+tags:
+  - Next.js
+  - React
+  - TypeScript
+  - Web Development
+image: "/images/blog/nextjs-portfolio.jpg"
+---
+
+# Building a Modern Web Portfolio with Next.js
+
+Creating a modern web portfolio is essential for showcasing your work and skills in today's digital landscape. In this comprehensive guide, I'll walk you through building a portfolio website using Next.js, React, and TypeScript.
+
+## Why Next.js?
+
+Next.js has become the go-to framework for React applications, offering:
+
+- **Server-Side Rendering (SSR)** for better performance and SEO
+- **Static Site Generation (SSG)** for blazing-fast page loads
+- **API Routes** for backend functionality
+- **File-system Based Routing** for intuitive navigation
+
+## Getting Started
+
+First, let's create a new Next.js project:
+
+```bash
+npx create-next-app@latest portfolio --typescript --tailwind
+cd portfolio
+```
+
+## Project Structure
+
+Here's how we'll organize our project:
+
+```
+portfolio/
+├── app/
+│   ├── components/
+│   ├── lib/
+│   └── pages/
+├── public/
+└── content/
+```
+
+## Key Features
+
+### 1. Dynamic Routing
+
+Next.js makes routing simple with its file-system based approach:
+
+```typescript
+// app/[slug]/page.tsx
+export default function ProjectPage({ params }: { params: { slug: string } }) {
+  return (
+    <div>
+      <h1>Project: {params.slug}</h1>
+    </div>
+  );
+}
+```
+
+### 2. Responsive Design
+
+Using Tailwind CSS for responsive layouts:
+
+```typescript
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {projects.map((project) => (
+    <ProjectCard key={project.id} {...project} />
+  ))}
+</div>
+```
+
+### 3. Animations
+
+Adding smooth animations with Framer Motion:
+
+```typescript
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+>
+  <h1>Welcome to my portfolio</h1>
+</motion.div>
+```
+
+## Performance Optimization
+
+### Image Optimization
+
+Next.js provides built-in image optimization:
+
+```typescript
+import Image from 'next/image'
+
+<Image
+  src="/project-thumbnail.jpg"
+  alt="Project Thumbnail"
+  width={800}
+  height={600}
+  priority
+/>
+```
+
+### Font Optimization
+
+Using Next.js 13's built-in font optimization:
+
+```typescript
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
+```
+
+## Deployment
+
+Deploy your portfolio using Vercel:
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Configure your deployment settings
+4. Deploy!
+
+## Conclusion
+
+Building a modern portfolio with Next.js gives you a fast, SEO-friendly, and maintainable website. The combination of Next.js, React, and TypeScript provides a robust foundation for showcasing your work professionally.
+
+Remember to:
+- Keep your code clean and maintainable
+- Optimize images and assets
+- Test across different devices
+- Regularly update your content
+
+Happy coding! 🚀
