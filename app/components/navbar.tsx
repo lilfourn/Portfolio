@@ -15,9 +15,8 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { Icon: Linkedin, href: 'https://www.linkedin.com/in/lukefournier711/', label: 'LinkedIn' },
-    { Icon: Github, href: 'https://github.com/', label: 'GitHub' },
-    { Icon: Mail, href: 'mailto:luke.fournier2023@gmail.com', label: 'Email' },
+    { Icon: Linkedin, href: 'https://www.linkedin.com/in/lukefournier711/', label: 'LinkedIn', isExternal: true },
+    { Icon: Github, href: 'https://github.com/', label: 'GitHub', isExternal: true },
   ];
 
   return (
@@ -27,7 +26,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-14">
             {/* Social Links */}
             <div className="flex items-center space-x-3">
-              {socialLinks.map(({ Icon, href, label }) => (
+              {socialLinks.map(({ Icon, href, label, isExternal }) => (
                 <a
                   key={label}
                   href={href}
@@ -39,11 +38,17 @@ const Navbar = () => {
                   <Icon className="w-5 h-5" />
                 </a>
               ))}
+              <a
+                href="mailto:luke.fournier2023@gmail.com"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
-              
               {navigationItems.map((item) => (
                 <Link
                   key={item.label}
