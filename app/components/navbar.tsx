@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Linkedin, Github, Mail, Menu, X, Home } from 'lucide-react';
+import { Linkedin, Github, Menu, X, Home } from 'lucide-react';
 import Link from 'next/link';
 
 const Navbar = () => {
@@ -12,6 +12,7 @@ const Navbar = () => {
     { label: 'Blog', href: '/blog' },
     { label: 'Projects', href: '/projects' },
     { label: 'Hire Me', href: '/hire' },
+    { label: 'Home', Icon: Home, href: '/' },
   ];
 
   const socialLinks = [
@@ -38,13 +39,6 @@ const Navbar = () => {
                   <Icon className="w-5 h-5" />
                 </a>
               ))}
-              <a
-                href="mailto:luke.fournier2023@gmail.com"
-                className="hover:text-white transition-colors duration-200"
-                aria-label="Email"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
             </div>
 
             {/* Desktop Navigation */}
@@ -55,15 +49,9 @@ const Navbar = () => {
                   href={item.href}
                   className="hover:text-white text-sm font-medium transition-colors duration-200"
                 >
-                  {item.label}
+                  {item.Icon ? <item.Icon className="w-5 h-5" /> : item.label}
                 </Link>
               ))}
-              <Link
-                href="/"
-                className="hover:text-white text-sm font-medium transition-colors duration-200"
-              >
-                <Home className="w-5 h-5" />
-              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -88,13 +76,6 @@ const Navbar = () => {
           >
             <div className="py-4 border-t border-gray-700">
               <div className="flex flex-col space-y-4">
-                <Link
-                  href="/"
-                  className="hover:text-white text-sm font-medium transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Home className="w-5 h-5" />
-                </Link>
                 {navigationItems.map((item) => (
                   <Link
                     key={item.label}
@@ -102,7 +83,7 @@ const Navbar = () => {
                     className="hover:text-white text-sm font-medium transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item.label}
+                    {item.Icon ? <item.Icon className="w-5 h-5" /> : item.label}
                   </Link>
                 ))}
               </div>
