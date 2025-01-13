@@ -2,15 +2,19 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-type RouteContext = {
+interface RouteParams {
   params: {
     slug: string;
   };
-};
+  searchParams: { [key: string]: string | string[] | undefined };
+}
 
-export async function GET(request: Request, context: RouteContext) {
+export async function GET(
+  request: Request,
+  { params }: RouteParams
+) {
   try {
-    const filePath = path.join(process.cwd(), 'content/blog', `${context.params.slug}.mdx`);
+    const filePath = path.join(process.cwd(), 'content/blog', `${params.slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, 'utf8');
     return new NextResponse(fileContent);
   } catch {
