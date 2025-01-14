@@ -11,29 +11,67 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Luke Fournier",
-  description: "Luke Fournier - Fullstack Developer",
+  title: {
+    default: "Luke Fournier | Full Stack Developer & Software Engineer",
+    template: "%s | Luke Fournier"
+  },
+  description: "Luke Fournier - Full Stack Developer specializing in Next.js, React, and modern web technologies. Building innovative web applications with a focus on user experience and performance.",
+  keywords: [
+    "Luke Fournier",
+    "Full Stack Developer",
+    "Software Engineer",
+    "Web Developer",
+    "React Developer",
+    "Next.js Developer",
+    "JavaScript Developer",
+    "TypeScript",
+    "Frontend Development",
+    "Backend Development",
+    "Web Applications",
+    "Software Development",
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://lukefournier.com',
+    siteName: 'Luke Fournier',
+    title: 'Luke Fournier | Full Stack Developer & Software Engineer',
+    description: 'Luke Fournier - Full Stack Developer specializing in Next.js, React, and modern web technologies.',
+    images: [
+      {
+        url: '/website-preview-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Luke Fournier - Full Stack Developer'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Luke Fournier | Full Stack Developer & Software Engineer',
+    description: 'Luke Fournier - Full Stack Developer specializing in Next.js, React, and modern web technologies.',
+    images: ['/website-preview-image.png'],
+    creator: '@lukefournier'
+  },
+  authors: [{ name: "Luke Fournier" }],
+  creator: "Luke Fournier",
+  publisher: "Luke Fournier",
   icons: {
     icon: "/LF.ico"
   },
-  openGraph: {
-    title: "Luke Fournier",
-    description: "Luke Fournier - Fullstack Developer",
-    images: [
-      {
-        url: "/website-preview-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Luke Fournier - Portfolio Website"
-      }
-    ],
-    type: "website"
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Luke Fournier",
-    description: "Luke Fournier - Fullstack Developer",
-    images: ["/website-preview-image.png"]
+  verification: {
+    google: "your-google-verification-code", // Add your Google Search Console verification code
   }
 };
 
