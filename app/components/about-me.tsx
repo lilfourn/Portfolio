@@ -53,9 +53,9 @@ const AboutMe = () => {
                 className="space-y-6"
               >
                 <h2 className="text-3xl md:text-4xl font-bold text-white">
-                  Brief{' '}
+                  About{' '}
                   <span className="relative inline-block">
-                    <span className="relative z-10">Introduction</span>
+                    <span className="relative z-10">Me</span>
                     <div 
                       className="absolute bottom-0 left-0 right-0 h-[25%] bg-blue-600 -skew-x-12"
                       style={{
