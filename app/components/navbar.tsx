@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 p-4 z-50">
-      <nav className="backdrop-blur-sm bg-zinc-800/40 rounded-xl text-gray-300 w-full md:w-[720px] lg:w-[920px] xl:w-[1200px] mx-auto transition-all duration-300 ease-in-out">
+      <nav className="backdrop-blur-sm bg-zinc-800/40 rounded-xl text-gray-300 mx-auto max-w-[calc(100vw-2rem)] md:max-w-[720px] lg:max-w-[920px] xl:max-w-[1200px] transition-all duration-300 ease-in-out">
         <div className="px-4">
           <div className="flex items-center justify-between h-14">
             {/* Social Links */}

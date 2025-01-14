@@ -29,7 +29,7 @@ const WebsitePreview = ({ websiteUrl = 'metric.ai' }: WebsitePreviewProps) => {
   ];
 
   return (
-    <div className="h-[calc(100vh-35rem)] w-full bg-gradient-to-br from-zinc-900/40 to-zinc-800/40 rounded-lg shadow-xl backdrop-blur-sm border border-white/10 overflow-hidden">
+    <div className="h-[calc(100vh-25rem)] sm:h-[calc(100vh-35rem)] w-full bg-gradient-to-br from-zinc-900/40 to-zinc-800/40 rounded-lg shadow-xl backdrop-blur-sm border border-white/10 overflow-hidden">
       {/* Browser Chrome */}
       <div className="h-10 bg-zinc-950/50 border-b border-white/10 flex items-center px-4 gap-4">
         {/* Window Controls */}

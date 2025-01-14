@@ -27,10 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={openSans.variable}>
-      <body suppressHydrationWarning className="antialiased font-sans bg-black min-h-screen">
+      <body suppressHydrationWarning className="antialiased font-sans bg-black min-h-screen max-w-[100vw] overflow-x-hidden">
         <GridBackground>
           <Navbar />
-          {children}
+          <main className="w-full max-w-full px-4">
+            {children}
+          </main>
         </GridBackground>
         <script
           async
