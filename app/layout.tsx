@@ -15,6 +15,25 @@ export const metadata: Metadata = {
   description: "Luke Fournier - Fullstack Developer",
   icons: {
     icon: "/LF.ico"
+  },
+  openGraph: {
+    title: "Luke Fournier",
+    description: "Luke Fournier - Fullstack Developer",
+    images: [
+      {
+        url: "/website-preview-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Luke Fournier - Portfolio Website"
+      }
+    ],
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Luke Fournier",
+    description: "Luke Fournier - Fullstack Developer",
+    images: ["/website-preview-image.png"]
   }
 };
 
