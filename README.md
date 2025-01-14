@@ -102,10 +102,6 @@ npm run lint
 # Run type-checking
 npm run type-check
 ```
-
-<<<<<<< HEAD
-
-# portfolio
 # Portfolio
 =======
 ### Environment Variables
