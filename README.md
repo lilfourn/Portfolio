@@ -135,7 +135,7 @@ The website is deployed on Vercel with the following configuration:
 
 ## Future Enhancements
 
-- [✅] Implement blog section with MDX
+- ✅ Implement blog section with MDX
 - [ ] Add light mode support
 - [ ] Integrate with CMS for content management
 - [ ] Add automated testing with Jest and React Testing Library
