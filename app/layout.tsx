@@ -12,7 +12,7 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Luke Fournier | Full Stack Developer & Software Engineer",
+    default: "Luke Fournier | Full Stack Developer",
     template: "%s | Luke Fournier"
   },
   description: "Luke Fournier - Full Stack Developer specializing in Next.js, React, and modern web technologies. Building innovative web applications with a focus on user experience and performance.",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
+    google: "scT9cLmVy0e03RLqXRKSFr8zCenXRvyhhS8ru75XXwE", // Add your Google Search Console verification code
   }
 };
 
