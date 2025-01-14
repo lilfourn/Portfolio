@@ -7,7 +7,7 @@ import GlowingText from "@/app/components/glowing-text"
 
 export default function ProjectsContent() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-16 sm:pb-20">
       {/* Hero Section */}
       <div className="relative h-[60vh] overflow-hidden">
         <div className="absolute inset-0" />

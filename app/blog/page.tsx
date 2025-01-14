@@ -76,7 +76,7 @@ export default function BlogPage() {
   });
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-16 sm:pb-20">
       {/* Hero Section */}
       <div className="relative h-[60vh] overflow-hidden">
         <div className="absolute inset-0" />
