@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const socialLinks = [
     { Icon: Linkedin, href: 'https://www.linkedin.com/in/lukefournier711/', label: 'LinkedIn', isExternal: true },
-    { Icon: Github, href: 'https://github.com/', label: 'GitHub', isExternal: true },
+    { Icon: Github, href: 'https://github.com/lilfourn', label: 'GitHub', isExternal: true },
   ];
 
   return (

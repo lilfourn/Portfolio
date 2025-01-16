@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import GlowingText from "@/app/components/glowing-text";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { FeatureSteps } from "@/components/feature-section";
 
 export default function AboutContent() {
   const skills = [
@@ -71,21 +72,37 @@ export default function AboutContent() {
   return (
     <div className="min-h-screen pb-16 sm:pb-20">
       {/* Hero Section */}
-      <div className="relative h-[60vh] overflow-hidden">
-        <div className="absolute inset-0"></div>
+      <div className="relative h-[60vh] w-screen -mt-24 -ml-[50vw] left-1/2 right-1/2  overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0"
+        >
+          <Image
+            src="/about me/my brothers.png"
+            alt="Luke with his brothers"
+            fill
+            className="object-cover opacity-70"
+            priority
+          />
+          <div className="absolute inset-0 " />
+        </motion.div>
+
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center px-4">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
+              transition={{ delay: 0.5 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mt-8 mb-6 text-white"
             >
               About Me
             </motion.h1>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.7 }}
             >
               <GlowingText 
                 text="Get to know me better"
@@ -96,7 +113,7 @@ export default function AboutContent() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 -mt-1">
         {/* Introduction */}
         <div className="max-w-4xl mx-auto mt-16">
           <motion.div
@@ -232,6 +249,62 @@ export default function AboutContent() {
               );
             })}
           </div>
+        </div>
+
+        {/* Life Outside Coding */}
+        <div className="mt-20 sm:mt-24 md:mt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8 sm:mb-12 md:mb-16 px-4"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Life Beyond the Screen</h2>
+            <p className="text-base sm:text-lg text-zinc-300 max-w-2xl mx-auto">
+              From lacrosse fields to mountain peaks, here's a glimpse into the moments that shape who I am.
+            </p>
+          </motion.div>
+
+          <FeatureSteps
+            features={[
+              {
+                step: "Sports & Leadership",
+                title: "UT Men's Lacrosse",
+                content: "Building leadership and teamwork on the field. Strategy meets execution.",
+                image: "/about me/UT mens lacrosse photo.png"
+              },
+              {
+                step: "Community & Tradition",
+                title: "Texas OU Weekend",
+                content: "Creating lifelong bonds through shared traditions and celebrations.",
+                image: "/about me/at Texas OU with my fraternity.png"
+              },
+              {
+                step: "Adventure & Family",
+                title: "Mountain Adventures",
+                content: "Conquering peaks and making memories with family by my side.",
+                image: "/about me/family photo after climbing moutain.png"
+              },
+              {
+                step: "Companionship",
+                title: "Meet Roux",
+                content: "My faithful companion and coding buddy, always by my side.",
+                image: "/about me/roux my dog.png"
+              }
+            ]}
+            className="bg-transparent"
+            autoPlayInterval={6000}
+          />
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-8 sm:mt-12 md:mt-16 text-base sm:text-lg text-zinc-300 max-w-2xl mx-auto px-4"
+          >
+            These experiences shape my perspective and bring creativity to my work. Whether it's the discipline from sports, 
+            the joy of adventure, or the bonds of friendship and family – each moment contributes to who I am as a developer and person.
+          </motion.p>
         </div>
 
         {/* Final CTA */}

@@ -9,8 +9,8 @@ export default function ProjectsContent() {
   return (
     <div className="min-h-screen pb-16 sm:pb-20">
       {/* Hero Section */}
-      <div className="relative h-[60vh] overflow-hidden">
-        <div className="absolute inset-0" />
+      <div className="relative h-[60vh] mt-[-4rem] overflow-hidden">
+        <div className="absolute inset-0 " />
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center px-4">
             <motion.h1 

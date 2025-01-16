@@ -78,14 +78,14 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen pb-16 sm:pb-20">
       {/* Hero Section */}
-      <div className="relative h-[60vh] overflow-hidden">
+      <div className="relative h-[60vh] mt-[-4rem] overflow-hidden">
         <div className="absolute inset-0" />
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center px-4">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6  text-white"
             >
               Blog & Tutorials
             </motion.h1>
