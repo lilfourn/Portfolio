@@ -20,6 +20,7 @@ This is a modern, full-stack portfolio website built with cutting-edge web techn
 - Static Site Generation (SSG) for blog posts
 - Progressive Web App (PWA) capabilities
 - Responsive design with a mobile-first approach
+- Responsive design with mobile-first approach
 - SEO optimization with metadata management
 - Image optimization with Next.js Image component
 - Custom animations and transitions
@@ -60,7 +61,11 @@ portfolio/
 - **Version Control**
   - Git for version control
   - Conventional commits for clear commit history
+<<<<<<< HEAD
   - Branch protection rules for the main branch
+=======
+  - Branch protection rules for main branch
+>>>>>>> 5e82621 (docs: enhance README with comprehensive technical documentation)
 
 ## Getting Started
 
@@ -74,13 +79,21 @@ portfolio/
 # Clone the repository
 git clone https://github.com/lilfourn/Portfolio.git
 
+<<<<<<< HEAD
 # Navigate to the project directory
+=======
+# Navigate to project directory
+>>>>>>> 5e82621 (docs: enhance README with comprehensive technical documentation)
 cd Portfolio
 
 # Install dependencies
 npm install
 
+<<<<<<< HEAD
 # Start the development server
+=======
+# Start development server
+>>>>>>> 5e82621 (docs: enhance README with comprehensive technical documentation)
 npm run dev
 ```
 
@@ -99,7 +112,11 @@ npm start
 # Run linting
 npm run lint
 
+<<<<<<< HEAD
 # Run type-checking
+=======
+# Run type checking
+>>>>>>> 5e82621 (docs: enhance README with comprehensive technical documentation)
 npm run type-check
 ```
 # Portfolio
@@ -137,6 +154,39 @@ The website is deployed on Vercel with the following configuration:
 - [ ] Add automated testing with Jest and React Testing Library
 - [ ] Implement CI/CD pipeline with GitHub Actions
 
+### Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# Example environment variables
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+## Deployment
+
+The website is deployed on Vercel with the following configuration:
+
+- Automatic deployments on push to main branch
+- Preview deployments for pull requests
+- Environment variable management
+- Edge Network CDN for optimal global performance
+
+## Code Quality & Testing
+
+- **Static Analysis**: ESLint and TypeScript for code quality
+- **Format Checking**: Prettier for consistent code style
+- **Git Hooks**: Husky for pre-commit checks
+- **Type Safety**: Strict TypeScript configuration
+
+## Future Enhancements
+
+- [ ] Implement blog section with MDX
+- [ ] Add dark mode support
+- [ ] Integrate with CMS for content management
+- [ ] Add automated testing with Jest and React Testing Library
+- [ ] Implement CI/CD pipeline with GitHub Actions
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -146,5 +196,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Luke Fournier**
 - Portfolio: [lukefournier.com](https://lukefournier.com)
 - GitHub: [@lilfourn](https://github.com/lilfourn)
+<<<<<<< HEAD
 - LinkedIn: [Luke Fournier]([https://www.linkedin.com/in/lukefournier711/])
+>>>>>>> 5e82621 (docs: enhance README with comprehensive technical documentation)
+=======
+- LinkedIn: [Luke Fournier](https://www.linkedin.com/in/luke-fournier)
 >>>>>>> 5e82621 (docs: enhance README with comprehensive technical documentation)
