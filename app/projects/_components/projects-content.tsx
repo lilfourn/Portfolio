@@ -34,7 +34,7 @@ export default function ProjectsContent() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto mt-[-6rem] px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
