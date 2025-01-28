@@ -1,7 +1,7 @@
 "use client";
 
 import { getAllPosts } from "@/lib/mdx";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { BlogPost } from "@/types/blog-types";
 import BlogHero from "./_components/blog-hero";
 import BlogGrid from "./_components/blog-grid";
@@ -23,12 +23,12 @@ export default function BlogPage() {
         const allPosts = await getAllPosts();
         setPosts(allPosts);
         
-        // Extract unique tags from all posts
+        // Extract unique tags from all posts and sort them
         const tags = Array.from(
           new Set(allPosts.flatMap(post => post.tags || []))
-        ).sort();
-        setAllTags(tags);
+        ).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
         
+        setAllTags(tags);
         setError(null);
       } catch (err) {
         setError('Failed to load blog posts');
@@ -41,18 +41,28 @@ export default function BlogPage() {
     loadPosts();
   }, []);
 
-  // Filter posts based on search query and selected tags
-  const filteredPosts = posts.filter(post => {
-    const matchesSearch = searchQuery === "" || 
-      post.title?.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      post.excerpt?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.tags?.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+  // Memoized filtered posts to prevent unnecessary recalculations
+  const filteredPosts = useMemo(() => {
+    return posts.filter(post => {
+      const searchTerms = searchQuery.toLowerCase().split(" ").filter(term => term.length > 0);
+      
+      // Search query matching - match ANY search term
+      const matchesSearch = searchQuery === "" || searchTerms.some(term => 
+        post.title.toLowerCase().includes(term) || 
+        post.description.toLowerCase().includes(term) ||
+        post.tags.some(tag => tag.toLowerCase().includes(term)) ||
+        (post.excerpt && post.excerpt.toLowerCase().includes(term))
+      );
 
-    const matchesTags = selectedTags.length === 0 || 
-      selectedTags.every(tag => post.tags?.includes(tag));
+      // Tag filtering - post must have ALL selected tags
+      const matchesTags = selectedTags.length === 0 || 
+        selectedTags.every(selectedTag => 
+          post.tags.some(tag => tag.toLowerCase() === selectedTag.toLowerCase())
+        );
 
-    return matchesSearch && matchesTags;
-  });
+      return matchesSearch && matchesTags;
+    }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }, [posts, searchQuery, selectedTags]);
 
   return (
     <>
@@ -67,13 +77,13 @@ export default function BlogPage() {
             selectedTags={selectedTags}
             setSelectedTags={setSelectedTags}
             allTags={allTags}
-            className=" mt-[-6rem] mb-12"
+            className="mt-[-6rem] mb-12"
           />
         )}
 
         {/* Error State */}
         {error && (
-          <div className="text-center">
+          <div className="text-center py-12">
             <h2 className="text-2xl font-bold text-white mb-4">
               {error}
             </h2>

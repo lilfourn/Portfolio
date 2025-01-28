@@ -4,6 +4,51 @@ import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import type { BlogPost } from '@/types/blog-types';
 
 const BLOG_POSTS: Record<string, BlogPost> = {
+  'deepseek-drama': {
+    title: "The DeepSeek Drama: A Game-Changer in the AI Race",
+    description: "Explore how DeepSeek, a Chinese AI startup, is disrupting the AI industry with its groundbreaking cost-efficiency claims and market impact.",
+    date: "January 28, 2025",
+    author: {
+      name: "Luke Fournier",
+      image: "/about me/Luke Cutout.png"
+    },
+    tags: ["AI", "Technology", "DeepSeek", "Industry News"],
+    image: "/images/blog/Blog-Post-Photos/Deep-Seek-News.jpg",
+    slug: "deepseek-drama",
+    content: `# The DeepSeek Drama: A Game-Changer in the AI Race
+
+In the ever-evolving world of artificial intelligence, a new player has emerged that's causing quite a stir. DeepSeek, a Chinese AI startup, has recently taken the tech world by storm, challenging the dominance of established giants like OpenAI and Google. Let's dive into the drama surrounding DeepSeek and explore why it's making waves in the AI industry.
+
+## The Rise of DeepSeek
+
+Founded in late 2023 by Chinese hedge fund manager Liang Wenfeng, DeepSeek burst onto the scene with its AI model DeepSeek R1. Within a week of its release, the DeepSeek app surged to the top of app store charts, surpassing even ChatGPT. This meteoric rise has caught the attention of tech enthusiasts, investors, and governments alike.
+
+## The Cost-Efficiency Breakthrough
+
+What sets DeepSeek apart is its claimed ability to match or even surpass the performance of leading AI models at a fraction of the cost. According to DeepSeek, their R1 model was trained using only about 2,000 specialized Nvidia chips, compared to the tens of thousands used by U.S. companies. This efficiency claim has sent shockwaves through the tech industry.
+
+## Market Disruption
+
+The potential implications of DeepSeek's cost-efficiency have not gone unnoticed by the market. On January 27, 2025, major U.S. tech stocks, including Nvidia, Oracle, and Broadcom, experienced significant drops. Nvidia alone reportedly lost around $600 billion in market value in a single day, marking the largest single-day drop for a company in U.S. history.
+
+## Geopolitical Implications
+
+DeepSeek's emergence has reignited discussions about the global AI race, particularly between the United States and China. Despite U.S. sanctions on China's access to advanced semiconductors, DeepSeek's success suggests that China may be catching up in AI development. This has led to concerns in the U.S. about maintaining its competitive edge in AI technology.
+
+## Skepticism and Controversy
+
+While DeepSeek's claims are impressive, they haven't been without skepticism. Some American AI researchers have questioned the veracity of DeepSeek's statements about its spending and chip usage. There are also concerns about potential censorship and bias in DeepSeek's responses, particularly regarding sensitive topics related to China.
+
+## The Future of AI Development
+
+DeepSeek's approach, focusing on efficiency and reasoning capabilities, could potentially shift the focus of AI development. If their claims hold true, it might lead to a reevaluation of the massive investments currently being poured into AI infrastructure by tech giants.
+
+## Conclusion
+
+The DeepSeek drama underscores the rapid pace of innovation in AI and the intense competition in this field. As the situation continues to unfold, it's clear that DeepSeek has already made a significant impact on the AI landscape, challenging assumptions and potentially reshaping the future of AI development.
+
+As we move forward, it will be crucial to monitor how established players respond to this new challenger and how governments adapt their strategies in the global AI race. One thing is certain: the AI revolution is far from over, and DeepSeek's emergence is just the latest chapter in this exciting and transformative journey.`,
+  },
   'building-modern-portfolio': {
     title: "Building a Modern Web Portfolio with Next.js: A Complete Guide for 2025",
     description: "Learn how to create a stunning, high-performance portfolio website using Next.js 14, React Server Components, and modern web development best practices.",
@@ -177,7 +222,7 @@ Remember to:
 Ready to start building? Clone the starter template from our GitHub repository and begin customizing your portfolio today!
 
 > **Pro Tip**: Keep your portfolio updated with new projects and blog posts. A stale portfolio can be worse than no portfolio at all.
-    `
+    `,
   }
 };
 
@@ -190,9 +235,12 @@ export const getPostBySlug = cache(async (slug: string): Promise<BlogPost> => {
 });
 
 export const getAllPosts = cache(async (): Promise<BlogPost[]> => {
-  return Object.values(BLOG_POSTS).sort((a, b) => {
+  // Convert the BLOG_POSTS object to an array and sort by date
+  const posts = Object.values(BLOG_POSTS).sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
+  
+  return posts;
 });
 
 export async function serializeMDX(content: string): Promise<MDXRemoteSerializeResult<Record<string, unknown>, Record<string, unknown>>> {
