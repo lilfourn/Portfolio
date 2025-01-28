@@ -10,7 +10,7 @@ const BLOG_POSTS: Record<string, BlogPost> = {
     date: "January 28, 2025",
     author: {
       name: "Luke Fournier",
-      image: "/about me/Luke Cutout.png"
+      image: "/about-me/Luke-Cutout.png"
     },
     tags: ["AI", "Technology", "DeepSeek", "Industry News"],
     image: "/images/blog/Blog-Post-Photos/Deep-Seek-News.jpg",
@@ -55,10 +55,10 @@ As we move forward, it will be crucial to monitor how established players respon
     date: "January 11, 2025",
     author: {
       name: "Luke Fournier",
-      image: "/about me/Luke Cutout.png"
+      image: "/about-me/Luke-Cutout.png"
     },
     tags: ["Next.js", "React", "TypeScript", "Web Development", "Portfolio", "Performance"],
-    image: "/images/blog/Blog Post Photos/building-portfolio.jpeg",
+    image: "/images/blog/Blog-Post-Photos/building-portfolio.jpeg",
     slug: "building-modern-portfolio",
     content: `
 # Building a Modern Web Portfolio with Next.js: A Complete Guide for 2025
@@ -217,7 +217,7 @@ Remember to:
 - Regularly update content and projects
 - Maintain clean, documented code
 
-![Modern Portfolio Example](/images/blog/Blog Post Photos/building-portfolio.jpeg)
+![Modern Portfolio Example](/images/blog/Blog-Post-Photos/building-portfolio.jpeg)
 
 Ready to start building? Clone the starter template from our GitHub repository and begin customizing your portfolio today!
 
@@ -226,13 +226,11 @@ Ready to start building? Clone the starter template from our GitHub repository a
   }
 };
 
-export const getPostBySlug = cache(async (slug: string): Promise<BlogPost> => {
+export function getPostBySlug(slug: string): BlogPost | null {
   const post = BLOG_POSTS[slug];
-  if (!post) {
-    throw new Error(`Post with slug "${slug}" not found`);
-  }
+  if (!post) return null;
   return post;
-});
+}
 
 export const getAllPosts = cache(async (): Promise<BlogPost[]> => {
   // Convert the BLOG_POSTS object to an array and sort by date

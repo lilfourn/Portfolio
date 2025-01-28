@@ -7,7 +7,7 @@ import BlogHero from "./_components/blog-hero";
 import BlogGrid from "./_components/blog-grid";
 import BlogSearch from "./_components/blog-search";
 import LoadingCard from "./_components/loading-card";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -24,9 +24,10 @@ export default function BlogPage() {
         setPosts(allPosts);
         
         // Extract unique tags from all posts and sort them
-        const tags = Array.from(
-          new Set(allPosts.flatMap(post => post.tags || []))
-        ).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+        const uniqueTags = allPosts.flatMap((post: BlogPost) => post.tags || []);
+        const tags = [...new Set(uniqueTags)].sort((a, b) => 
+          a.toLowerCase().localeCompare(b.toLowerCase())
+        );
         
         setAllTags(tags);
         setError(null);
@@ -43,25 +44,29 @@ export default function BlogPage() {
 
   // Memoized filtered posts to prevent unnecessary recalculations
   const filteredPosts = useMemo(() => {
-    return posts.filter(post => {
-      const searchTerms = searchQuery.toLowerCase().split(" ").filter(term => term.length > 0);
+    return posts.filter((post: BlogPost) => {
+      const searchTerms = searchQuery.toLowerCase().split(" ").filter((term: string) => term.length > 0);
       
       // Search query matching - match ANY search term
-      const matchesSearch = searchQuery === "" || searchTerms.some(term => 
+      const matchesSearch = searchQuery === "" || searchTerms.some((term: string) => 
         post.title.toLowerCase().includes(term) || 
         post.description.toLowerCase().includes(term) ||
-        post.tags.some(tag => tag.toLowerCase().includes(term)) ||
+        post.tags.some((tag: string) => tag.toLowerCase().includes(term)) ||
         (post.excerpt && post.excerpt.toLowerCase().includes(term))
       );
 
       // Tag filtering - post must have ALL selected tags
       const matchesTags = selectedTags.length === 0 || 
-        selectedTags.every(selectedTag => 
-          post.tags.some(tag => tag.toLowerCase() === selectedTag.toLowerCase())
+        selectedTags.every((selectedTag: string) => 
+          post.tags.some((tag: string) => tag.toLowerCase() === selectedTag.toLowerCase())
         );
 
       return matchesSearch && matchesTags;
-    }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    }).sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return dateB - dateA;
+    });
   }, [posts, searchQuery, selectedTags]);
 
   return (
@@ -102,34 +107,9 @@ export default function BlogPage() {
           </div>
         )}
 
-        {/* Blog Posts Grid */}
+        {/* Blog Grid */}
         {!loading && !error && (
-          <>
-            <AnimatePresence mode="wait">
-              {filteredPosts.length === 0 ? (
-                <motion.div
-                  key="no-results"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="text-center py-12"
-                >
-                  <p className="text-lg text-zinc-400">
-                    No posts found matching your criteria.
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="results"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <BlogGrid posts={filteredPosts} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </>
+          <BlogGrid posts={filteredPosts} />
         )}
       </div>
     </>

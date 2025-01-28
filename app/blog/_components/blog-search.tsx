@@ -59,7 +59,7 @@ export default function BlogSearch({
             placeholder="Search posts..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 bg-white/5 border-white/10 text-white placeholder:text-zinc-400"
+            className="w-full h-10 pl-12 bg-white/5 border-white/10 text-white placeholder:text-zinc-400"
           />
           <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-zinc-400" />
           {searchQuery && (

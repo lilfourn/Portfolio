@@ -1,19 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Calendar, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import { getPostBySlug, serializeMDX } from "@/lib/mdx";
-import { useEffect, useState } from "react";
-import { Suspense } from "react";
-import { BlogPost } from "@/types/blog-types";
-import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import type { BlogPost } from "@/types/blog-types";
+import { BlogPostClient } from "./blog-post-client";
+import type { ReactNode } from 'react';
 
 interface MDXComponentProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 
@@ -23,16 +19,16 @@ interface MDXComponents {
 
 const components: MDXComponents = {
   h1: ({ children, ...props }: MDXComponentProps) => (
-    <h1 className="text-3xl font-bold text-white mt-8 mb-4" {...props}>{children}</h1>
+    <h1 className="text-4xl font-bold text-white mt-8 mb-4" {...props}>{children}</h1>
   ),
   h2: ({ children, ...props }: MDXComponentProps) => (
-    <h2 className="text-2xl font-bold text-white mt-8 mb-4" {...props}>{children}</h2>
+    <h2 className="text-3xl font-bold text-white mt-8 mb-4" {...props}>{children}</h2>
   ),
   h3: ({ children, ...props }: MDXComponentProps) => (
-    <h3 className="text-xl font-bold text-white mt-6 mb-3" {...props}>{children}</h3>
+    <h3 className="text-2xl font-bold text-white mt-6 mb-3" {...props}>{children}</h3>
   ),
   p: ({ children, ...props }: MDXComponentProps) => (
-    <p className="text-zinc-300 leading-relaxed mb-4" {...props}>{children}</p>
+    <p className="mb-4 leading-relaxed text-gray-300" {...props}>{children}</p>
   ),
   ul: ({ children, ...props }: MDXComponentProps) => (
     <ul className="list-disc list-inside space-y-2 mb-4 text-zinc-300" {...props}>{children}</ul>
@@ -84,81 +80,14 @@ function LoadingPost() {
   );
 }
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const router = useRouter();
-  const [post, setPost] = useState<BlogPost | null>(null);
-  const [mdxSource, setMdxSource] = useState<MDXRemoteSerializeResult<Record<string, unknown>, Record<string, unknown>> | null>(null);
-  const [error, setError] = useState<string | null>(null);
+interface BlogPostContentProps {
+  post: BlogPost;
+  content: ReactNode;
+}
 
-  useEffect(() => {
-    async function loadPost() {
-      try {
-        if (typeof params.slug !== 'string') {
-          throw new Error('Invalid slug');
-        }
-
-        const post = await getPostBySlug(params.slug);
-        const mdxSource = await serializeMDX(post.content);
-        
-        setPost(post);
-        setMdxSource(mdxSource);
-        setError(null);
-      } catch (err) {
-        setError('Failed to load blog post');
-        console.error(err);
-        router.push('/blog');
-      }
-    }
-    
-    loadPost();
-  }, [params.slug, router]);
-
-  if (error) {
-    return (
-      <div className="min-h-screen pt-32 pb-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <Link 
-            href="/blog"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Blog
-          </Link>
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-white mb-4">
-              {error}
-            </h1>
-            <p className="text-zinc-400">
-              The blog post you&apos;re looking for couldn&apos;t be found.
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!post || !mdxSource) {
-    return (
-      <div className="min-h-screen pt-32 pb-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <Link 
-            href="/blog"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Blog
-          </Link>
-          <Suspense fallback={<LoadingPost />}>
-            <LoadingPost />
-          </Suspense>
-        </div>
-      </div>
-    );
-  }
-
+function BlogPostContent({ post, content }: BlogPostContentProps) {
   return (
-    <div className="min-h-screen pt-32 pb-16">
+    <div className="min-h-screen pt-40 pb-16">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Back Button */}
         <Link 
@@ -240,10 +169,27 @@ export default function BlogPostPage() {
 
           {/* Article Content */}
           <div className="markdown-content">
-            <MDXRemote {...mdxSource} components={components} />
+            {content}
           </div>
         </motion.div>
       </div>
     </div>
+  );
+}
+
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = getPostBySlug(params.slug);
+  
+  if (!post) {
+    return <div>Post not found</div>;
+  }
+
+  const mdxSource = await serializeMDX(post.content);
+  
+  return (
+    <BlogPostClient 
+      post={post} 
+      content={<MDXRemote source={post.content} components={components} />} 
+    />
   );
 }

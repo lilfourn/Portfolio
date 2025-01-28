@@ -5,6 +5,7 @@ export interface BlogPost {
   content: string;
   publishedAt: string;
   readingTime: string;
+  coverImage?: string;
   author: {
     name: string;
     image: string;

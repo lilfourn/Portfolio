@@ -98,11 +98,11 @@ export const blogPosts: BlogPost[] = [
     readingTime: "4 min read",
     author: {
       name: "Luke Fournier",
-      image: "/about me/Luke Cutout.png"
+      image: "/about-me/Luke-Cutout.png"
     },
     category: "Web Development",
     tags: ["Next.js", "React", "TypeScript", "Portfolio", "Tutorial"],
-    image: "/Blog Post Photos/building-portfolio.jpeg",
+    image: "/images/blog/Blog-Post-Photos/building-portfolio.jpeg",
     slug: "building-modern-web-portfolio-nextjs"
   },
   {
@@ -191,11 +191,11 @@ export const blogPosts: BlogPost[] = [
     readingTime: "4 min read",
     author: {
       name: "Luke Fournier",
-      image: "/about me/Luke Cutout.png"
+      image: "/about-me/Luke-Cutout.png"
     },
     category: "Technology",
     tags: ["Economics", "Technology", "Software Development"],
-    image: "/Blog Post Photos/economics and compsci.jpg",
+    image: "/images/blog/Blog-Post-Photos/economics-and-compsci.jpg",
     slug: "intersection-economics-technology"
   }
 ];
