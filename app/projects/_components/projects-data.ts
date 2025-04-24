@@ -21,29 +21,31 @@ export const projects: Project[] = [
     title: "The Coffee Social",
     subtitle: "Coming Soon",
     description: "Coming Soon",
-    image: "/projects/coming-soon.png",
+    image: "/projects/coffeeSocial.png",
     details: {
       overview: "Coming Soon",
       challenges: ["Coming Soon"],
       solutions: ["Coming Soon"],
-      impact: "Coming Soon"
+      impact: "Coming Soon",
     },
-    technologies: ["Coming Soon"]
+    technologies: ["Coming Soon"],
+    liveUrl: "https://coffeesocial.co",
   },
   {
-    title: "Eden",
+    title: "Homebase",
     subtitle: "Coming Soon",
     description: "Coming Soon",
-    image: "/projects/coming-soon.png",
+    image: "/projects/Homebase(background).png",
     details: {
       overview: "Coming Soon",
       challenges: ["Coming Soon"],
       solutions: ["Coming Soon"],
-      impact: "Coming Soon"
+      impact: "Coming Soon",
     },
-    technologies: ["Coming Soon"]
-  }
-]
+    technologies: ["Coming Soon"],
+    liveUrl: "https://github.com/lilfourn/Homebase",
+  },
+];
 
 export const categories = [
   {
