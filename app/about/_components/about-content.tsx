@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { Code2, Brain, Lightbulb, Coffee, Heart, Users, Mountain, Dog } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
 import GlowingText from "@/app/components/glowing-text";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { FeatureSteps } from "@/components/feature-section";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { motion } from "framer-motion";
+import { Brain, Code2, Coffee, Heart, Lightbulb, Mountain } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutContent() {
   const skills = [
@@ -14,73 +14,61 @@ export default function AboutContent() {
       category: "Frontend Development",
       items: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
       icon: Code2,
-      description: "Building beautiful, responsive user interfaces with modern frameworks"
+      description:
+        "Building beautiful, responsive user interfaces with modern frameworks",
     },
     {
       category: "Backend Solutions",
       items: ["Node.js", "PostgreSQL", "Supabase", "Drizzle ORM"],
       icon: Brain,
-      description: "Creating robust server-side applications and database architectures"
+      description:
+        "Creating robust server-side applications and database architectures",
     },
     {
       category: "Development Practices",
       items: ["Git", "CI/CD", "Testing", "Documentation"],
       icon: Lightbulb,
-      description: "Following industry best practices for reliable software delivery"
-    }
+      description:
+        "Following industry best practices for reliable software delivery",
+    },
   ];
 
   const steps = [
     {
       title: "Early Years",
-      description: "Started my journey in tech with a passion for problem-solving and creating user-friendly solutions.",
+      description:
+        "Started my journey in tech with a passion for problem-solving and creating user-friendly solutions.",
       icon: Heart,
-      skills: ["HTML", "CSS", "JavaScript"]
+      skills: ["HTML", "CSS", "JavaScript"],
     },
     {
       title: "Professional Growth",
-      description: "Expanded my skills through hands-on experience and continuous learning in modern web technologies.",
+      description:
+        "Expanded my skills through hands-on experience and continuous learning in modern web technologies.",
       icon: Mountain,
-      skills: ["React", "Node.js", "TypeScript"]
+      skills: ["React", "Node.js", "TypeScript"],
     },
     {
       title: "Current Focus",
-      description: "Specializing in full-stack development with a focus on creating scalable, performant web applications.",
+      description:
+        "Specializing in full-stack development with a focus on creating scalable, performant web applications.",
       icon: Lightbulb,
-      skills: ["Next.js", "Supabase", "Tailwind"]
-    }
-  ];
-
-  const interests = [
-    {
-      title: "Community",
-      description: "Active participant in tech communities, sharing knowledge and learning from others.",
-      icon: Users
+      skills: ["Next.js", "Supabase", "Tailwind"],
     },
-    {
-      title: "Coffee & Code",
-      description: "Love exploring new coffee shops while working on side projects.",
-      icon: Coffee
-    },
-    {
-      title: "Dogs",
-      description: "Passionate about dogs and their amazing companionship.",
-      icon: Dog
-    }
   ];
 
   return (
     <div className="min-h-screen pb-16 sm:pb-20">
       {/* Hero Section */}
       <div className="relative h-[60vh] w-screen -mt-24 -ml-[50vw] left-1/2 right-1/2  overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           className="absolute inset-0"
         >
           <Image
-            src="/about me/my brothers.png"
+            src="/brothers.png"
             alt="Luke with his brothers"
             fill
             className="object-cover opacity-70"
@@ -91,7 +79,7 @@ export default function AboutContent() {
 
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center px-4">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -104,7 +92,7 @@ export default function AboutContent() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
-              <GlowingText 
+              <GlowingText
                 text="Get to know me better"
                 className="text-xl md:text-2xl text-zinc-200"
               />
@@ -123,26 +111,29 @@ export default function AboutContent() {
             className="space-y-6"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              About{' '}
+              About{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">Me</span>
-                <div 
+                <div
                   className="absolute bottom-0 left-0 right-0 h-[25%] bg-blue-600 -skew-x-12"
                   style={{
                     opacity: 0.3,
-                    transform: 'skew(-12deg) translateY(40%)'
+                    transform: "skew(-12deg) translateY(40%)",
                   }}
                 />
               </span>
             </h2>
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-zinc-300 leading-relaxed">
-                I'm a Full Stack Developer with a passion for creating elegant, efficient, and user-friendly web applications. 
-                My journey in software development has been driven by a constant desire to learn and innovate.
+                I'm a Full Stack Developer with a passion for creating elegant,
+                efficient, and user-friendly web applications. My journey in
+                software development has been driven by a constant desire to
+                learn and innovate.
               </p>
               <p className="text-lg text-zinc-300 leading-relaxed">
-                With expertise in modern web technologies and a keen eye for design, I specialize in building responsive, 
-                performant applications that provide exceptional user experiences.
+                With expertise in modern web technologies and a keen eye for
+                design, I specialize in building responsive, performant
+                applications that provide exceptional user experiences.
               </p>
             </div>
           </motion.div>
@@ -156,9 +147,12 @@ export default function AboutContent() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-white mb-4">Technical Expertise</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Technical Expertise
+            </h2>
             <p className="text-lg text-zinc-300 max-w-2xl mx-auto">
-              A comprehensive toolkit that enables me to tackle complex challenges and deliver robust solutions.
+              A comprehensive toolkit that enables me to tackle complex
+              challenges and deliver robust solutions.
             </p>
           </motion.div>
 
@@ -178,7 +172,9 @@ export default function AboutContent() {
                     <div className="p-3 rounded-lg bg-blue-600/10 text-blue-400">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white">{skill.category}</h3>
+                    <h3 className="text-xl font-semibold text-white">
+                      {skill.category}
+                    </h3>
                   </div>
                   <p className="text-zinc-300 mb-4">{skill.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -207,7 +203,8 @@ export default function AboutContent() {
           >
             <h2 className="text-3xl font-bold text-white mb-4">My Journey</h2>
             <p className="text-lg text-zinc-300 max-w-2xl mx-auto">
-              The path that led me to where I am today, and where I'm headed next.
+              The path that led me to where I am today, and where I'm headed
+              next.
             </p>
           </motion.div>
 
@@ -227,13 +224,15 @@ export default function AboutContent() {
                       <div className="p-3 rounded-lg bg-blue-600/10 text-blue-400">
                         <Icon className="w-6 h-6" />
                       </div>
-                      <h3 className="text-2xl font-bold text-white">{step.title}</h3>
+                      <h3 className="text-2xl font-bold text-white">
+                        {step.title}
+                      </h3>
                     </div>
-                    
+
                     <p className="text-lg text-zinc-300 leading-relaxed">
                       {step.description}
                     </p>
-                    
+
                     <div className="flex flex-wrap gap-2 pt-2">
                       {step.skills.map((skill, i) => (
                         <span
@@ -259,9 +258,12 @@ export default function AboutContent() {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-12 md:mb-16 px-4"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Life Beyond the Screen</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
+              Life Beyond the Screen
+            </h2>
             <p className="text-base sm:text-lg text-zinc-300 max-w-2xl mx-auto">
-              From lacrosse fields to mountain peaks, here's a glimpse into the moments that shape who I am.
+              From lacrosse fields to mountain peaks, here's a glimpse into the
+              moments that shape who I am.
             </p>
           </motion.div>
 
@@ -270,27 +272,31 @@ export default function AboutContent() {
               {
                 step: "Sports & Leadership",
                 title: "UT Men's Lacrosse",
-                content: "Building leadership and teamwork on the field. Strategy meets execution.",
-                image: "/about me/UT mens lacrosse photo.png"
+                content:
+                  "Building leadership and teamwork on the field. Strategy meets execution.",
+                image: "/about me/UT mens lacrosse photo.png",
               },
               {
                 step: "Community & Tradition",
                 title: "Texas OU Weekend",
-                content: "Creating lifelong bonds through shared traditions and celebrations.",
-                image: "/about me/at Texas OU with my fraternity.png"
+                content:
+                  "Creating lifelong bonds through shared traditions and celebrations.",
+                image: "/about me/at Texas OU with my fraternity.png",
               },
               {
                 step: "Adventure & Family",
                 title: "Mountain Adventures",
-                content: "Conquering peaks and making memories with family by my side.",
-                image: "/about me/family photo after climbing moutain.png"
+                content:
+                  "Conquering peaks and making memories with family by my side.",
+                image: "/about me/family photo after climbing moutain.png",
               },
               {
                 step: "Companionship",
                 title: "Meet Roux",
-                content: "My faithful companion and coding buddy, always by my side.",
-                image: "/about me/roux my dog.png"
-              }
+                content:
+                  "My faithful companion and coding buddy, always by my side.",
+                image: "/about me/roux my dog.png",
+              },
             ]}
             className="bg-transparent"
             autoPlayInterval={6000}
@@ -302,8 +308,10 @@ export default function AboutContent() {
             viewport={{ once: true }}
             className="text-center mt-8 sm:mt-12 md:mt-16 text-base sm:text-lg text-zinc-300 max-w-2xl mx-auto px-4"
           >
-            These experiences shape my perspective and bring creativity to my work. Whether it's the discipline from sports, 
-            the joy of adventure, or the bonds of friendship and family – each moment contributes to who I am as a developer and person.
+            These experiences shape my perspective and bring creativity to my
+            work. Whether it's the discipline from sports, the joy of adventure,
+            or the bonds of friendship and family – each moment contributes to
+            who I am as a developer and person.
           </motion.p>
         </div>
 
@@ -318,8 +326,8 @@ export default function AboutContent() {
             <div className="relative group">
               <div className="absolute -inset-1.5 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
               <Avatar className="h-32 w-32 ring-2 ring-zinc-800 relative">
-                <AvatarImage 
-                  src="/about me/Luke Cutout.png" 
+                <AvatarImage
+                  src="/Luke.png"
                   alt="Luke Fournier"
                   className="object-cover"
                 />
@@ -327,15 +335,18 @@ export default function AboutContent() {
               </Avatar>
             </div>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-4">Let&apos;s Create Something Amazing</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Let&apos;s Create Something Amazing
+          </h2>
           <p className="text-xl text-zinc-300 max-w-2xl mx-auto">
-            I&apos;m always excited to take on new challenges and collaborate on innovative projects. 
-            Whether you have a specific project in mind or just want to connect, I&apos;d love to hear from you.
+            I&apos;m always excited to take on new challenges and collaborate on
+            innovative projects. Whether you have a specific project in mind or
+            just want to connect, I&apos;d love to hear from you.
           </p>
 
           <div className="mt-8 flex justify-center">
-            <Link 
-              href="/hire" 
+            <Link
+              href="/hire"
               className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
             >
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />

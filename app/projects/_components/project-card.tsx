@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
+import Image from "next/image";
 import { useState } from "react"
 import ProjectDialog from "./project-dialog"
 import { Project } from "./projects-data"
@@ -11,7 +11,7 @@ interface ProjectCardProps extends Project {
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
-  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <>
